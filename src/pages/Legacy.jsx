@@ -1,4 +1,5 @@
-import { legacyItems, honors } from '../data/legacy';
+import { Link } from 'react-router-dom';
+import { legacyItems } from '../data/legacy';
 import './Legacy.css';
 
 export default function Legacy() {
@@ -32,6 +33,18 @@ export default function Legacy() {
                   <div className="legacy-card__years">{item.years}</div>
                   <h3 className="legacy-card__title">{item.title}</h3>
                   <p className="legacy-card__desc">{item.description}</p>
+                  {item.photo && (
+                    <div className="legacy-card__photo-wrap">
+                      <img
+                        src={`${process.env.PUBLIC_URL}/images/${item.photo}`}
+                        alt={item.photoCaption || item.title}
+                        className="legacy-card__photo"
+                      />
+                      {item.photoCaption && (
+                        <div className="legacy-card__photo-caption">{item.photoCaption}</div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -39,42 +52,21 @@ export default function Legacy() {
         </div>
       </section>
 
-      {/* Photo strip */}
-      <section className="legacy-photos">
-        <div className="legacy-photos__strip">
-          {[
-            { src: `${process.env.PUBLIC_URL}/images/img_06.jpg`, caption: "With President Sampaio & Premier Bob Rae" },
-            { src: `${process.env.PUBLIC_URL}/images/img_08.jpg`, caption: "Medalha de Mérito das Comunidades Portuguesas" },
-            { src: `${process.env.PUBLIC_URL}/images/img_11.jpg`, caption: "Honorary Consul of Portugal, 1998" },
-            { src: `${process.env.PUBLIC_URL}/images/img_13.jpg`, caption: "Province of Ontario Volunteer Award" },
-          ].map((p, i) => (
-            <div key={i} className="legacy-photos__item">
-              <img src={p.src} alt={p.caption} />
-              <div className="legacy-photos__caption">{p.caption}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Honors */}
-      <section className="honors-section">
-        <div className="container">
-          <div className="section-label">Recognition</div>
-          <h2 className="section-title" style={{ fontSize: '2rem' }}>Honors & Awards</h2>
-          <div className="section-divider" />
-          <div className="honors-grid">
-            {honors.map((h, i) => (
-              <div key={i} className="honor-card">
-                <div className="honor-card__medal">🏅</div>
-                <div>
-                  <h3 className="honor-card__title">{h.title}</h3>
-                  <div className="honor-card__issuer">
-                    {h.issuer}{h.year ? ` · ${h.year}` : ''}
-                  </div>
-                  <p className="honor-card__desc">{h.description}</p>
-                </div>
-              </div>
-            ))}
+      {/* Awards link */}
+      <section className="legacy-awards-link">
+        <div className="container legacy-awards-link__inner">
+          <div>
+            <div className="section-label">Recognition</div>
+            <h2 className="section-title" style={{ fontSize: '2rem' }}>Honours &amp; Awards</h2>
+            <div className="section-divider" />
+            <p style={{ color: 'var(--mid-grey)', maxWidth: '620px', lineHeight: '1.8' }}>
+              António do Forno received honours from the governments of Portugal and Canada,
+              the Knights of Columbus, the Province of Ontario, and many more — including a
+              posthumous nomination for the 2026 Portuguese Canadian Walk of Fame.
+            </p>
+            <Link to="/awards" className="btn-primary" style={{ marginTop: '24px', display: 'inline-block' }}>
+              View All Honours &amp; Awards
+            </Link>
           </div>
         </div>
       </section>

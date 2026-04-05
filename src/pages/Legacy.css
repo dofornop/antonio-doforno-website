@@ -60,6 +60,29 @@
   line-height: 1.75;
 }
 
+/* Legacy card photo */
+.legacy-card__photo-wrap {
+  margin-top: 20px;
+}
+
+.legacy-card__photo {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  border: 3px solid white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+}
+
+.legacy-card__photo-caption {
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--mid-grey);
+  font-style: italic;
+}
+
 /* Honors */
 .honors-section {
   padding: var(--section-pad);
@@ -107,6 +130,17 @@
   font-size: 0.88rem;
   color: var(--mid-grey);
   line-height: 1.7;
+}
+
+/* Awards link section */
+.legacy-awards-link {
+  padding: var(--section-pad);
+  background: var(--warm-white);
+}
+
+.legacy-awards-link__inner {
+  display: flex;
+  align-items: flex-start;
 }
 
 /* PCWOF callout */

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Story from './pages/Story';
 import Timeline from './pages/Timeline';
 import Legacy from './pages/Legacy';
+import Awards from './pages/Awards';
 import Family from './pages/Family';
 import Gallery from './pages/Gallery';
 import Memories from './pages/Memories';
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/story"    element={<Story />} />
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/legacy"   element={<Legacy />} />
+        <Route path="/awards"   element={<Awards />} />
         <Route path="/family"   element={<Family />} />
         <Route path="/gallery"  element={<Gallery />} />
         <Route path="/memories" element={<Memories />} />

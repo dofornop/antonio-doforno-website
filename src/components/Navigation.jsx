@@ -7,6 +7,7 @@ const navLinks = [
   { to: '/story',   label: 'His Story' },
   { to: '/timeline',label: 'Timeline' },
   { to: '/legacy',  label: 'Legacy' },
+  { to: '/awards',  label: 'Awards' },
   { to: '/family',  label: 'Family' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/memories',label: 'Memories' },
