@@ -44,8 +44,8 @@ export default function Home() {
               <div className="glance__label">Years of Community Service</div>
             </div>
             <div className="glance__card">
-              <div className="glance__number">8</div>
-              <div className="glance__label">Children</div>
+              <div className="glance__number">20+</div>
+              <div className="glance__label">Conselho das Comunidades Portuguesas</div>
             </div>
             <div className="glance__card">
               <div className="glance__number">1971</div>
@@ -132,19 +132,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PCWOF Banner ──────────────────────────────────────────────────── */}
-      <section className="pcwof-banner">
-        <div className="container pcwof-banner__inner">
-          <div>
-            <div className="section-label" style={{ color: 'var(--gold-light)' }}>Recognition</div>
-            <h3>Portuguese Canadian Walk of Fame</h3>
-            <p>António do Forno was nominated for the 2026 Portuguese Canadian Walk of Fame in recognition of his extraordinary lifetime of service to the Portuguese Canadian community.</p>
-          </div>
-          <Link to="/legacy" className="btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.5)', whiteSpace: 'nowrap' }}>
-            View His Legacy
-          </Link>
-        </div>
-      </section>
+      
 
     </div>
   );

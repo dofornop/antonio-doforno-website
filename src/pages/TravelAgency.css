@@ -1,0 +1,161 @@
+.travel-header {
+  padding: 64px 24px 48px;
+  background: var(--cream);
+}
+
+.travel-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--green-dark);
+  margin-bottom: 16px;
+}
+
+/* Story section */
+.travel-story {
+  padding: var(--section-pad);
+  background: var(--cream);
+}
+
+.travel-story__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.travel-story__text p {
+  color: var(--mid-grey);
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.travel-story__photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  border: 4px solid white;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.travel-story__photo-caption {
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--mid-grey);
+  font-style: italic;
+}
+
+/* Locations */
+.travel-locations {
+  padding: var(--section-pad);
+  background: var(--warm-white);
+}
+
+.travel-locations__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.travel-loc-card {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+.travel-loc-card__photo-wrap {
+  width: 100%;
+}
+
+.travel-loc-card__photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.travel-loc-card__photo.photo-placeholder {
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  background: var(--light-grey);
+  border: none;
+  color: var(--mid-grey);
+}
+
+.travel-loc-card__photo.photo-placeholder span {
+  font-size: 0.72rem;
+  font-style: italic;
+}
+
+.travel-loc-card__body {
+  padding: 24px;
+  border-top: 3px solid var(--green);
+}
+
+.travel-loc-card__years {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.travel-loc-card__city {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--green-dark);
+  margin-bottom: 10px;
+}
+
+.travel-loc-card__desc {
+  font-size: 0.9rem;
+  color: var(--mid-grey);
+  line-height: 1.75;
+}
+
+/* Supermarket banner */
+.travel-supermarket {
+  padding: 56px 24px;
+  background: var(--green-dark);
+  color: white;
+}
+
+.travel-supermarket__inner {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.travel-supermarket__icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.travel-supermarket h3 {
+  color: white;
+  margin-bottom: 12px;
+}
+
+.travel-supermarket p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+@media (max-width: 820px) {
+  .travel-story__inner { grid-template-columns: 1fr; gap: 32px; }
+  .travel-locations__grid { grid-template-columns: 1fr; }
+  .travel-supermarket__inner { flex-direction: column; }
+}
