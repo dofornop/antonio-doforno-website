@@ -23,6 +23,14 @@ export default function Press() {
           <div className="press-grid">
             {pressItems.map((item, i) => (
               <div key={i} className="press-card">
+                <div className="press-card__body">
+                  <div className="press-card__meta">
+                    <span className="press-card__publication">{item.publication}</span>
+                    {item.year && <span className="press-card__year">{item.year}</span>}
+                  </div>
+                  <h3 className="press-card__headline">{item.headline}</h3>
+                  <p className="press-card__excerpt">{item.excerpt}</p>
+                </div>
                 {item.photo && (
                   <div className="press-card__image-wrap">
                     <img
@@ -40,14 +48,6 @@ export default function Press() {
                     )}
                   </div>
                 )}
-                <div className="press-card__body">
-                  <div className="press-card__meta">
-                    <span className="press-card__publication">{item.publication}</span>
-                    {item.year && <span className="press-card__year">{item.year}</span>}
-                  </div>
-                  <h3 className="press-card__headline">{item.headline}</h3>
-                  <p className="press-card__excerpt">{item.excerpt}</p>
-                </div>
               </div>
             ))}
           </div>
