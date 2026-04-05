@@ -29,7 +29,6 @@ export default function Press() {
                     {item.year && <span className="press-card__year">{item.year}</span>}
                   </div>
                   <h3 className="press-card__headline">{item.headline}</h3>
-                  <p className="press-card__excerpt">{item.excerpt}</p>
                 </div>
                 {item.photo && (
                   <div className="press-card__image-wrap">
@@ -46,6 +45,11 @@ export default function Press() {
                     {item.photoCaption && (
                       <div className="press-card__image-caption">{item.photoCaption}</div>
                     )}
+                  </div>
+                )}
+                {item.excerpt && (
+                  <div className="press-card__excerpt-wrap">
+                    <p className="press-card__excerpt">{item.excerpt}</p>
                   </div>
                 )}
               </div>

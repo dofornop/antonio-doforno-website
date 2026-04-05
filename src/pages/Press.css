@@ -81,6 +81,10 @@
   line-height: 1.3;
 }
 
+.press-card__excerpt-wrap {
+  padding: 16px 24px 24px;
+}
+
 .press-card__excerpt {
   font-size: 0.9rem;
   color: var(--mid-grey);
