@@ -124,6 +124,27 @@
   line-height: 1.7;
 }
 
+/* Photo inside timeline card */
+.tl-event__photo-wrap {
+  margin-top: 14px;
+}
+
+.tl-event__photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: block;
+  border: 3px solid white;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+}
+
+.tl-event__photo-caption {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--mid-grey);
+  font-style: italic;
+  line-height: 1.4;
+}
+
 /* Mobile — single column */
 @media (max-width: 700px) {
   .tl-line { left: 20px; }

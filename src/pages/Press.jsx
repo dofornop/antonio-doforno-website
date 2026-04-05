@@ -29,6 +29,11 @@ export default function Press() {
                       src={`${process.env.PUBLIC_URL}/images/${item.photo}`}
                       alt={item.photoCaption || item.headline}
                       className="press-card__image"
+                      style={{
+                        objectPosition: item.photoPosition || 'top center',
+                        objectFit: item.photoFit || 'cover',
+                        background: 'var(--cream)'
+                      }}
                     />
                     {item.photoCaption && (
                       <div className="press-card__image-caption">{item.photoCaption}</div>

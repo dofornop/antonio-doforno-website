@@ -73,6 +73,23 @@ export default function Timeline() {
               </div>
               <h3 className="tl-event__title">{event.title}</h3>
               <p className="tl-event__desc">{event.description}</p>
+              {event.photo && (
+                <div className="tl-event__photo-wrap">
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/${event.photo}`}
+                    alt={event.photoCaption || event.title}
+                    className="tl-event__photo"
+                    style={{
+                      objectPosition: event.photoPosition || 'center center',
+                      objectFit: event.photoFit || 'cover',
+                      background: 'var(--cream)'
+                    }}
+                  />
+                  {event.photoCaption && (
+                    <div className="tl-event__photo-caption">{event.photoCaption}</div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         ))}
