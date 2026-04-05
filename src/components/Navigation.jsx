@@ -32,8 +32,15 @@ export default function Navigation() {
     <nav className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
       <div className="nav__inner">
         <NavLink to="/" className="nav__brand">
-          <span className="nav__brand-name">António do Forno</span>
-          <span className="nav__brand-dates">1935 – 2025</span>
+          <img
+            src={`${process.env.PUBLIC_URL}/images/img_01.jpg`}
+            alt="António do Forno"
+            className="nav__brand-photo"
+          />
+          <span className="nav__brand-text">
+            <span className="nav__brand-name">António do Forno</span>
+            <span className="nav__brand-dates">1935 – 2025</span>
+          </span>
         </NavLink>
 
         {/* Desktop links */}
