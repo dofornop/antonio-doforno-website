@@ -1,0 +1,201 @@
+.legacy-header {
+  padding: 64px 24px 48px;
+  background: var(--cream);
+}
+
+.legacy-contributions {
+  padding: var(--section-pad);
+  background: var(--cream);
+}
+
+.legacy-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 40px;
+}
+
+.legacy-card {
+  display: flex;
+  gap: 28px;
+  background: white;
+  padding: 32px;
+  border-left: 4px solid var(--green);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.legacy-card:hover {
+  border-left-color: var(--gold);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+.legacy-card__icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 48px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.legacy-card__years {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.legacy-card__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--green-dark);
+  margin-bottom: 10px;
+}
+
+.legacy-card__desc {
+  font-size: 0.92rem;
+  color: var(--mid-grey);
+  line-height: 1.75;
+}
+
+/* Honors */
+.honors-section {
+  padding: var(--section-pad);
+  background: var(--warm-white);
+}
+
+.honors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.honor-card {
+  background: white;
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  border-top: 3px solid var(--gold);
+}
+
+.honor-card__medal {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.honor-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--green-dark);
+  margin-bottom: 4px;
+}
+
+.honor-card__issuer {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.honor-card__desc {
+  font-size: 0.88rem;
+  color: var(--mid-grey);
+  line-height: 1.7;
+}
+
+/* PCWOF callout */
+.pcwof-callout {
+  padding: 56px 24px;
+  background: var(--green-dark);
+  color: white;
+}
+
+.pcwof-callout__inner {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.pcwof-callout__star {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.pcwof-callout h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: white;
+  margin-bottom: 12px;
+}
+
+.pcwof-callout p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 700px;
+}
+
+@media (max-width: 700px) {
+  .honors-grid { grid-template-columns: 1fr; }
+  .legacy-card { flex-direction: column; gap: 16px; }
+  .pcwof-callout__inner { flex-direction: column; }
+}
+
+/* ── Photo strip ─────────────────────────────────────────────────────────────── */
+.legacy-photos {
+  background: var(--green-dark);
+  padding: 32px 0;
+}
+
+.legacy-photos__strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.legacy-photos__item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.legacy-photos__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+  filter: brightness(0.85);
+}
+
+.legacy-photos__item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+.legacy-photos__caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  padding: 20px 12px 10px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.3;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.legacy-photos__item:hover .legacy-photos__caption {
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .legacy-photos__strip { grid-template-columns: repeat(2, 1fr); }
+}
