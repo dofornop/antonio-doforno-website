@@ -19,6 +19,13 @@ export const pressItems = [
     photoPosition: "top center",
     photoFit: "contain"
   },
+  {
+    headline: "FPTV Ponto da Situação — Sharing about Antonio passing away",
+    publication: "FPTV Ponto da Situação",
+    year: "October 2025",
+    excerpt: "A heartfelt segment on FPTV Ponto da Situação, where community members and family share their memories and reflections on António do Forno's life and legacy following his passing in October 2025.",
+    videoUrl: "https://youtu.be/3AAyN4HBuug"
+  },
   // Add more press items here using the same format:
   // {
   //   headline: "Headline of the article or video",
@@ -34,5 +41,8 @@ export const pressItems = [
   //
   //   --- For a YouTube video (videoUrl takes priority over photo) ---
   //   videoUrl: "https://www.youtube.com/watch?v=abc123",   ← full YouTube link
+  //
+  //   --- To link to a live website or article ---
+  //   link: "https://www.windsorstar.com/some-article",     ← shows a "Read Article →" button
   // }
 ];

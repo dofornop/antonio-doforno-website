@@ -80,6 +80,28 @@ export default function Press() {
                   {item.excerpt && (
                     <div className="press-card__excerpt-wrap">
                       <p className="press-card__excerpt">{item.excerpt}</p>
+                      {item.link && (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="press-card__link-btn"
+                        >
+                          Read Article →
+                        </a>
+                      )}
+                    </div>
+                  )}
+                  {!item.excerpt && item.link && (
+                    <div className="press-card__excerpt-wrap">
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="press-card__link-btn"
+                      >
+                        Read Article →
+                      </a>
                     </div>
                   )}
                 </div>
