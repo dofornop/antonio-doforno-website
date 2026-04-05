@@ -66,13 +66,16 @@
 /* ── Desktop grouped nav ─────────────────────────────────────────────────────── */
 .nav__groups {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  height: 100%;
   gap: 0;
   list-style: none;
 }
 
 .nav__group {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .nav__group-label {
@@ -82,8 +85,8 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--mid-grey);
-  padding: 8px 12px;
-  border-radius: 2px;
+  padding: 0 12px;
+  height: 100%;
   background: none;
   border: none;
   cursor: pointer;
@@ -94,8 +97,7 @@
   white-space: nowrap;
 }
 
-.nav__group-label:hover,
-.nav__group:hover .nav__group-label {
+.nav__group-label:hover {
   color: var(--green);
 }
 
@@ -109,29 +111,25 @@
   display: inline-block;
 }
 
-.nav__group:hover .nav__chevron {
+.nav__chevron--open {
   transform: rotate(180deg);
 }
 
-/* Dropdown */
+/* Dropdown — sits flush under the nav bar, no gap */
 .nav__dropdown {
-  display: none;
   position: absolute;
-  top: calc(100% + 4px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   background: white;
   border: 1px solid var(--border);
-  border-radius: 4px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
   min-width: 180px;
   list-style: none;
   padding: 6px 0;
   z-index: 200;
-}
-
-.nav__group:hover .nav__dropdown {
-  display: block;
 }
 
 .nav__dropdown-link {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './Navigation.css';
 
@@ -40,9 +40,11 @@ const navGroups = [
 ];
 
 export default function Navigation() {
-  const [scrolled, setScrolled]       = useState(false);
-  const [menuOpen, setMenuOpen]       = useState(false);
-  const [openGroup, setOpenGroup]     = useState(null);
+  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen]   = useState(false);
+  const [openGroup, setOpenGroup] = useState(null);   // mobile accordion
+  const [activeGroup, setActiveGroup] = useState(null); // desktop dropdown
+  const closeTimer = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -54,8 +56,18 @@ export default function Navigation() {
   useEffect(() => {
     setMenuOpen(false);
     setOpenGroup(null);
+    setActiveGroup(null);
     window.scrollTo(0, 0);
   }, [location]);
+
+  const handleGroupEnter = (label) => {
+    clearTimeout(closeTimer.current);
+    setActiveGroup(label);
+  };
+
+  const handleGroupLeave = () => {
+    closeTimer.current = setTimeout(() => setActiveGroup(null), 200);
+  };
 
   const isGroupActive = (group) =>
     group.links.some(link => location.pathname === link.to);
@@ -80,28 +92,35 @@ export default function Navigation() {
         {/* Desktop grouped nav */}
         <ul className="nav__groups">
           {navGroups.map(group => (
-            <li key={group.label} className="nav__group">
+            <li
+              key={group.label}
+              className="nav__group"
+              onMouseEnter={() => handleGroupEnter(group.label)}
+              onMouseLeave={handleGroupLeave}
+            >
               <button
-                className={`nav__group-label${isGroupActive(group) ? ' nav__group-label--active' : ''}`}
-                aria-haspopup="true"
+                className={`nav__group-label${isGroupActive(group) || activeGroup === group.label ? ' nav__group-label--active' : ''}`}
               >
                 {group.label}
-                <span className="nav__chevron">▾</span>
+                <span className={`nav__chevron${activeGroup === group.label ? ' nav__chevron--open' : ''}`}>▾</span>
               </button>
-              <ul className="nav__dropdown">
-                {group.links.map(link => (
-                  <li key={link.to}>
-                    <NavLink
-                      to={link.to}
-                      className={({ isActive }) =>
-                        `nav__dropdown-link${isActive ? ' nav__dropdown-link--active' : ''}`
-                      }
-                    >
-                      {link.label}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
+
+              {activeGroup === group.label && (
+                <ul className="nav__dropdown">
+                  {group.links.map(link => (
+                    <li key={link.to}>
+                      <NavLink
+                        to={link.to}
+                        className={({ isActive }) =>
+                          `nav__dropdown-link${isActive ? ' nav__dropdown-link--active' : ''}`
+                        }
+                      >
+                        {link.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
