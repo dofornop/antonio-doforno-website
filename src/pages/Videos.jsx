@@ -1,10 +1,32 @@
 import './Videos.css';
 
-// To add a video, add an entry to this array:
-// { type: "youtube", id: "VIDEO_ID_HERE", title: "Title", caption: "Short description" }
-// or
-// { type: "file", src: "video-filename.mp4", title: "Title", caption: "Short description" }
-const videos = [];
+// ─── HOW TO ADD A VIDEO ────────────────────────────────────────────────────────
+//
+// For a YouTube video — just paste the full link:
+//   { type: "youtube", url: "https://www.youtube.com/watch?v=abc123", title: "Title", caption: "Optional description" }
+//   { type: "youtube", url: "https://youtu.be/abc123",                title: "Title", caption: "Optional description" }
+//
+// For a video file you upload to public/videos/:
+//   { type: "file", src: "video-filename.mp4", title: "Title", caption: "Optional description" }
+//
+const videos = [
+  // Example — delete this line and add your own below:
+  // { type: "youtube", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", title: "Example Video", caption: "A caption here" },
+];
+
+// ─── Extracts the YouTube video ID from any YouTube URL format ─────────────────
+function getYouTubeId(url) {
+  if (!url) return null;
+  try {
+    const u = new URL(url);
+    if (u.hostname === 'youtu.be') return u.pathname.slice(1);
+    if (u.hostname.includes('youtube.com')) return u.searchParams.get('v');
+  } catch {
+    // if it's already just an ID, return it as-is
+    return url;
+  }
+  return null;
+}
 
 export default function Videos() {
   return (
@@ -13,7 +35,7 @@ export default function Videos() {
 
       <div className="videos-header">
         <div className="container">
-          <div className="section-label">In His Own Words & Moments</div>
+          <div className="section-label">In His Own Words &amp; Moments</div>
           <h1 className="section-title">Videos</h1>
           <div className="section-divider" />
           <p className="section-subtitle">
@@ -25,45 +47,47 @@ export default function Videos() {
 
       <section className="videos-main">
         <div className="container">
-          {videos.length > 0 ? (
+          {videos.filter(v => !(v.type === 'youtube' && v.url?.includes('dQw4w9WgXcQ'))).length > 0 ? (
             <div className="videos-grid">
-              {videos.map((v, i) => (
-                <div key={i} className="video-card">
-                  <div className="video-card__embed">
-                    {v.type === 'youtube' ? (
-                      <iframe
-                        src={`https://www.youtube.com/embed/${v.id}`}
-                        title={v.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    ) : (
-                      <video controls>
-                        <source src={`${process.env.PUBLIC_URL}/videos/${v.src}`} />
-                        Your browser does not support video.
-                      </video>
-                    )}
+              {videos.map((v, i) => {
+                const youtubeId = v.type === 'youtube' ? getYouTubeId(v.url) : null;
+                return (
+                  <div key={i} className="video-card">
+                    <div className="video-card__embed">
+                      {v.type === 'youtube' && youtubeId ? (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${youtubeId}`}
+                          title={v.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      ) : v.type === 'file' ? (
+                        <video controls>
+                          <source src={`${process.env.PUBLIC_URL}/videos/${v.src}`} />
+                          Your browser does not support video.
+                        </video>
+                      ) : null}
+                    </div>
+                    <div className="video-card__body">
+                      <h3 className="video-card__title">{v.title}</h3>
+                      {v.caption && <p className="video-card__caption">{v.caption}</p>}
+                    </div>
                   </div>
-                  <div className="video-card__body">
-                    <h3 className="video-card__title">{v.title}</h3>
-                    {v.caption && <p className="video-card__caption">{v.caption}</p>}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="videos-placeholder">
               <div className="videos-placeholder__icon">🎬</div>
               <h2>Videos Coming Soon</h2>
               <p>
-                Family videos and recordings will be added here. To add a video,
-                open <strong>src/pages/Videos.jsx</strong> and add an entry to the
-                <code>videos</code> array at the top of the file.
+                To add a YouTube video, open <strong>src/pages/Videos.jsx</strong>,
+                find the <code>videos</code> array at the top, and paste in the
+                full YouTube link like this:
               </p>
-              <p>
-                You can add YouTube videos (just paste the video ID) or upload
-                video files directly to <strong>public/videos/</strong>.
-              </p>
+              <div className="videos-placeholder__example">
+                {`{ type: "youtube", url: "https://www.youtube.com/watch?v=...", title: "Your title", caption: "Optional note" }`}
+              </div>
             </div>
           )}
         </div>
