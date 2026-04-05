@@ -21,13 +21,18 @@ export const pressItems = [
   },
   // Add more press items here using the same format:
   // {
-  //   headline: "Headline of the article",
-  //   publication: "Newspaper or Magazine Name",
+  //   headline: "Headline of the article or video",
+  //   publication: "Newspaper, TV station, or source name",
   //   year: "1998",
-  //   excerpt: "A short quote or summary from the article...",
-  //   photo: "clipping-image.jpg",      ← scan of the article, or null
+  //   excerpt: "A short quote or summary...",
+  //
+  //   --- For a photo/scan ---
+  //   photo: "clipping-image.jpg",      ← filename in public/images/, or null
   //   photoCaption: "Caption text",     ← or null
-  //   photoPosition: "top center",      ← "top center" / "center center" / "bottom center" / "50% 20%"
-  //   photoFit: "contain"               ← "contain" (show full image) or "cover" (crop to fill)
+  //   photoPosition: "top center",      ← "top center" / "center center" / "50% 20%"
+  //   photoFit: "contain",              ← "contain" (full image) or "cover" (cropped)
+  //
+  //   --- For a YouTube video (videoUrl takes priority over photo) ---
+  //   videoUrl: "https://www.youtube.com/watch?v=abc123",   ← full YouTube link
   // }
 ];

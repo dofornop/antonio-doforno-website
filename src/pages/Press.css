@@ -21,6 +21,21 @@
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
 }
 
+.press-card__video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: black;
+}
+
+.press-card__video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .press-card__image-wrap {
   overflow: hidden;
 }

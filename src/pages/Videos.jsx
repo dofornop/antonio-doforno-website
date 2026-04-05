@@ -11,7 +11,7 @@ import './Videos.css';
 //
 const videos = [
   // Example — delete this line and add your own below:
-  // { type: "youtube", url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", title: "Example Video", caption: "A caption here" },
+   { type: "youtube", url: "https://youtu.be/3AAyN4HBuug", title: "FPTV Ponto da Situação", caption: "Sharing about Antonio passing away" },
 ];
 
 // ─── Extracts the YouTube video ID from any YouTube URL format ─────────────────
