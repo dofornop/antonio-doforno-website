@@ -26,8 +26,56 @@ export const pressItems = [
     excerpt: "A heartfelt segment on FPTV Ponto da Situação, where community members and family share their memories and reflections on António do Forno's life and legacy following his passing in October 2025.",
     videoUrl: "https://youtu.be/3AAyN4HBuug"
   },
+  {
+  headline: "Últimas em Bom Dia with Nellie, Remembering the Late Antonio do Forno",
+  publication: "Gente TV",
+  year: "2025",
+  excerpt: "Últimas em Bom Dia with Nellie, remembering the late pioneer Antonio do Forno. This segment discusses the passing of Antonio do Forno, a significant figure in the Portuguese community.",
+  photo: null,
+  photoCaption: null,
+  photoPosition: null,
+  photoFit: null,
+  videoUrl: "https://www.youtube.com/watch?v=tRyId4ftVkw",
+  link: null
+},
+  {
+  headline: "Obituary: Antonio Joaquim Pereira Alves do Forno",
+  publication: "Chatham Daily News",
+  year: "October2025",
+  excerpt: "Antonio Joaquim Pereira Alves do Forno, a steadfast husband, loving father, grandfather, and pillar of the Portuguese Canadian community, passed away peacefully on October 12, 2025, in Chatham, Ontario, Canada, at the age of 90.",
+  photo: "2025-10-13-ObituaryChathamDailynewAntonio.jpg",
+  photoCaption: null,
+  photoPosition: null,
+  photoFit: "Contain",
+  videoUrl: null,
+  link: "https://www.chathamdailynews.ca/news/local-news/antonio-do-forno-dedicated-to-family-portuguese-community"
+},
+{
+  headline: "Honouring Antonio do Forno as a Pillar of CK’s Portuguese Community",
+  publication: "99.1 CKXS FM",
+  year: "2025",
+  excerpt: "Chatham-Kent has lost one of the pillars of its Portuguese community. Antonio do Forno passed away at Chatham-Kent Hospice on Sunday, October 12 at the age of 90. Do Forno is being remembered for his hospitality to countless immigrants as they adjusted to life in Canada, welcoming many into his home and helping them start new lives in their adopted country.",
+  photo: "2025-10-CXFMObituaryAntonio.jpg",
+  photoCaption: null,
+  photoPosition: null,
+  photoFit: "contain",
+  videoUrl: null,
+  link: "https://ckxsfm.com/honouring-antonio-do-forno-as-a-pillar-of-cks-portuguese-community/"
+},
+{
+  headline: "10 AM - Funeral Mass for Antonio do Forno - Friday October 17, 2025",
+  publication: "Chatham Catholic Family of Parishes",
+  year: "2025",
+  excerpt: "Funeral Mass for Antonio do Forno at St. Joseph Church, Chatham on Friday, October 17, 2025.",
+  photo: null,
+  photoCaption: null,
+  photoPosition: null,
+  photoFit: null,
+  videoUrl: "https://www.youtube.com/watch?v=RvoKWO3Wark",
+  link: null
+},
   // Add more press items here using the same format:
-  // {
+  // { 
   //   headline: "Headline of the article or video",
   //   publication: "Newspaper, TV station, or source name",
   //   year: "1998",

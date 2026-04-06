@@ -117,17 +117,7 @@ export default function Press() {
         </div>
       </section>
 
-      <section className="press-add-note">
-        <div className="container">
-          <div className="section-label">Add a Clipping or Video</div>
-          <h2 className="section-title" style={{ fontSize: '1.8rem' }}>Got a Newspaper Article or Video?</h2>
-          <div className="section-divider" />
-          <p style={{ color: 'var(--mid-grey)', maxWidth: '640px', lineHeight: '1.8' }}>
-            Add entries in <strong>src/data/press.js</strong>. For a photo clipping, use the <code>photo</code> field.
-            For a YouTube video, use the <code>videoUrl</code> field with the full YouTube link.
-          </p>
-        </div>
-      </section>
+      
     </div>
   );
 }
