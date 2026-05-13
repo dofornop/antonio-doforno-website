@@ -18,7 +18,7 @@ export default function Home() {
             <p className="hero__tagline">
               Community leader. Father. Honorary Consul. A man who gave 
               more than forty years of service to the Portuguese Canadian community 
-              of Southwestern Ontario.
+              of Southwestern Ontario, Canada.
             </p>
             <div className="hero__actions">
               <Link to="/story" className="btn-primary">Read His Story</Link>
